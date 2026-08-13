@@ -1,19 +1,22 @@
-from typing import List
+﻿from typing import List
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Session, select
 
 from .database import init_db, get_session
 from .models import Post, Comment, PostCreate, CommentCreate, VoteAction
+from .analyze import router as analyze_router
 
 app = FastAPI(title="TruthLens API", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # dev only — restreindre au domaine du frontend en production
+    allow_origins=["*"],  # dev only â€” restreindre au domaine du frontend en production
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(analyze_router)
 
 
 @app.on_event("startup")
@@ -26,7 +29,7 @@ def health():
     return {"status": "ok"}
 
 
-# ---------- POSTS (fil de la communauté) ----------
+# ---------- POSTS (fil de la communautÃ©) ----------
 
 @app.get("/posts", response_model=List[Post])
 def list_posts(session: Session = Depends(get_session)):
@@ -61,7 +64,7 @@ def vote_post(post_id: int, action: VoteAction, session: Session = Depends(get_s
     elif action.direction == "flag":
         post.flags += 1
     else:
-        raise HTTPException(status_code=400, detail="direction doit être 'up' ou 'flag'")
+        raise HTTPException(status_code=400, detail="direction doit Ãªtre 'up' ou 'flag'")
     session.add(post)
     session.commit()
     session.refresh(post)
@@ -88,3 +91,4 @@ def add_comment(post_id: int, data: CommentCreate, session: Session = Depends(ge
     session.commit()
     session.refresh(comment)
     return comment
+
