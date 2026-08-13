@@ -40,6 +40,7 @@ function mapPost(p, comments = []) {
     platform: p.platform,
     title: p.title,
     content: p.content,
+    sourceUrl: p.source_url || null,
     flags: p.flags,
     status: p.status,
     votes: p.votes,
@@ -74,8 +75,8 @@ export async function fetchAllPosts() {
   return withComments;
 }
 
-export async function createPost({ author, platform, title, content }) {
-  const p = await request('/posts', { method: 'POST', body: JSON.stringify({ author, platform, title, content }) });
+export async function createPost({ author, platform, title, content, source_url }) {
+  const p = await request('/posts', { method: 'POST', body: JSON.stringify({ author, platform, title, content, source_url: source_url || null }) });
   return mapPost(p, []);
 }
 

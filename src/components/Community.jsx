@@ -12,6 +12,7 @@ export default function Community({ language, posts, backendOnline, onAddPost, o
   const [newTitle, setNewTitle] = useState('');
   const [newContent, setNewContent] = useState('');
   const [newPlatform, setNewPlatform] = useState('Twitter / X');
+  const [newSourceUrl, setNewSourceUrl] = useState('');
   
   // Comment inputs text per post
   const [commentInputs, setCommentInputs] = useState({});
@@ -29,6 +30,7 @@ export default function Community({ language, posts, backendOnline, onAddPost, o
       platform: newPlatform,
       title: newTitle,
       content: newContent,
+      sourceUrl: newSourceUrl || null,
       flags: 1,
       status: "En attente d'analyse",
       comments: [],
@@ -39,6 +41,7 @@ export default function Community({ language, posts, backendOnline, onAddPost, o
     
     setNewTitle('');
     setNewContent('');
+    setNewSourceUrl('');
     setShowAddForm(false);
   };
 
@@ -175,6 +178,16 @@ export default function Community({ language, posts, backendOnline, onAddPost, o
                       required
                     />
                   </div>
+                  <div className="form-group">
+                    <label>{language === 'fr' ? 'Lien / vidéo à signaler (optionnel)' : 'Link / video to report (optional)'}</label>
+                    <input
+                      type="url"
+                      className="form-control"
+                      placeholder={language === 'fr' ? 'https://...' : 'https://...'}
+                      value={newSourceUrl}
+                      onChange={(e) => setNewSourceUrl(e.target.value)}
+                    />
+                  </div>
                 </div>
 
                 <div>
@@ -243,6 +256,20 @@ export default function Community({ language, posts, backendOnline, onAddPost, o
                 <div className="post-body" style={{ marginTop: '1rem' }}>
                   <h3 style={{ color: 'var(--color-text)', fontSize: '1.25rem', marginBottom: '0.6rem' }}>{post.title}</h3>
                   <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>{post.content}</p>
+                  {post.sourceUrl && (
+                    <a
+                      href={post.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.8rem',
+                        color: 'var(--primary)', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none',
+                        border: '1px solid var(--border-color)', borderRadius: '8px', padding: '0.4rem 0.8rem',
+                      }}
+                    >
+                      <Globe size={14} /> {post.sourceUrl.length > 55 ? post.sourceUrl.slice(0, 55) + '…' : post.sourceUrl}
+                    </a>
+                  )}
                 </div>
 
                 {/* Footer votes / comments count */}

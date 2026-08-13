@@ -19,7 +19,15 @@ export default function Verifier({ language, onVerificationComplete, onAddToComm
   const backendResultRef = useRef(null); // holds the real server-side analysis, when reachable
   const [backendUsed, setBackendUsed] = useState(false); // true once a real server analysis was used
 
-  const steps = [
+  const stepsFr = [
+    t.verifier.analysisLogsTitle,
+    "1. " + t.verifier.waitingDesc.split('.')[0] + "...",
+    "2. Extraction des métadonnées structurelles...",
+    "3. Analyse du niveau de bruit des pixels (ELA)...",
+    "4. Calcul des indices de langage et de biais émotionnel...",
+    "5. Finalisation du calcul du Score de Confiance..."
+  ];
+  const stepsEn = [
     t.verifier.analysisLogsTitle,
     "1. " + t.verifier.waitingDesc.split('.')[0] + "...",
     "2. Extraction of structural metadata...",
@@ -27,6 +35,7 @@ export default function Verifier({ language, onVerificationComplete, onAddToComm
     "4. Calculating language and emotional bias indexes...",
     "5. Finalizing Trust Score calculation..."
   ];
+  const steps = language === 'fr' ? stepsFr : stepsEn;
 
   const handleSelectSample = (sampleType) => {
     setContentType(sampleType);
@@ -531,6 +540,7 @@ export default function Verifier({ language, onVerificationComplete, onAddToComm
         ? "Ce score est un indicateur basé sur des règles vérifiables (domaine, vocabulaire, structure, analyse ELA) — ce n'est pas un verdict certifié. Aucun outil, y compris les plus avancés, ne peut garantir à 100 % qu'un contenu est authentique ou généré par IA."
         : "This score is an indicator based on checkable rules (domain, wording, structure, ELA analysis) — not a certified verdict. No tool, however advanced, can guarantee with 100% certainty whether content is authentic or AI-generated.",
       serverAnalyzed: backendResultRef.current != null,
+      sourceUrl: (contentType === 'link' && inputVal) ? inputVal : null,
     };
 
     setReport(finalReport);

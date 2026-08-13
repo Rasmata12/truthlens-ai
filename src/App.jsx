@@ -143,7 +143,7 @@ export default function App() {
       try {
         const created = await createPost({
           author: newPost.author, platform: newPost.platform,
-          title: newPost.title, content: newPost.content,
+          title: newPost.title, content: newPost.content, source_url: newPost.sourceUrl,
         });
         setPosts(prev => [created, ...prev]);
         setStats(prev => ({ ...prev, communityContributions: prev.communityContributions + 1, userPoints: prev.userPoints + 20 }));
@@ -249,6 +249,7 @@ export default function App() {
       date: language === 'fr' ? "À l'instant" : "Just now",
       platform: report.type === 'link' ? (language === 'fr' ? 'Lien Direct' : 'Web Link') : report.type === 'text' ? 'Texte / Text' : 'Fichier média / Media',
       title: `[AI Alert] ${report.title}`,
+      sourceUrl: report.sourceUrl || null,
       content: language === 'fr' 
         ? `Verdict TruthLens AI : ${report.verdict} (Score : ${report.score}%). Résumé : ${report.explanation}`
         : `TruthLens AI Verdict: ${report.verdict} (Score: ${report.score}%). Explanation: ${report.explanation}`,

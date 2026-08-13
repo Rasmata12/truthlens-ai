@@ -9,6 +9,7 @@ class Post(SQLModel, table=True):
     platform: str
     title: str
     content: str
+    source_url: Optional[str] = Field(default=None)
     status: str = Field(default="En cours d'analyse")
     votes: int = Field(default=0)
     flags: int = Field(default=0)
@@ -41,6 +42,7 @@ class PostCreate(SQLModel):
     platform: str
     title: str
     content: str
+    source_url: Optional[str] = None
 
 
 class CommentCreate(SQLModel):
