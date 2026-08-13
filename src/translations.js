@@ -368,6 +368,18 @@ export const coursesData = {
           ],
           correct: 1,
           explanation: "Les modèles d'IA génèrent souvent des accessoires ou des reflets de lumière asymétriques entre le côté gauche et le côté droit du visage."
+        },
+        {
+          question: "Quel signe audio peut trahir un deepfake vocal ?",
+          options: ["Une voix monocorde, sans les bruits de respiration naturels", "Un accent très marqué", "Un volume trop faible", "Une voix qui chuchote"],
+          correct: 0,
+          explanation: "Les voix clonées par IA reproduisent le timbre mais peinent encore à imiter les micro-variations naturelles : respiration, hésitations, changements de rythme."
+        },
+        {
+          question: "Comment se protéger d'un faux appel vidéo comme celui qui a trompé plusieurs maires européens en 2022 ?",
+          options: ["Raccrocher et ne plus jamais répondre à cette personne", "Vérifier l'identité par un second canal de communication indépendant", "Demander à la personne de répéter plus lentement", "Continuer l'appel, ce n'est pas grave"],
+          correct: 1,
+          explanation: "Un second canal indépendant permet de confirmer une identité sans se fier uniquement à l'image ou au son, qui peuvent être truqués en temps réel."
         }
       ],
       badge: {
@@ -411,6 +423,18 @@ export const coursesData = {
           ],
           correct: 1,
           explanation: "La majorité des générateurs d'images ne savent pas encoder correctement la structure vectorielle des lettres."
+        },
+        {
+          question: "Sur une image générée par IA, que remarque-t-on souvent au niveau des mains ?",
+          options: ["Elles sont toujours cachées", "Un nombre anormal de doigts ou des membres fusionnés", "Elles sont toujours parfaites", "Elles changent de couleur"],
+          correct: 1,
+          explanation: "Les mains sont une structure complexe et très variable que les modèles d'IA ont historiquement du mal à générer correctement."
+        },
+        {
+          question: "Qu'est-ce que le \"lissage anormal\" mentionné dans la fiche pratique ?",
+          options: ["Une peau cireuse, sans pores visibles, à l'aspect trop parfait", "Des cheveux trop courts", "Un arrière-plan flou", "Une image trop petite"],
+          correct: 0,
+          explanation: "Les modèles génératifs lissent souvent excessivement la texture de la peau, produisant un effet artificiel proche du plastique."
         }
       ],
       badge: {
@@ -454,6 +478,18 @@ export const coursesData = {
           ],
           correct: 1,
           explanation: "Les métadonnées EXIF se retirent facilement. SynthID modifie les pixels de façon imperceptible pour persister après retouche."
+        },
+        {
+          question: "Le tatouage SynthID reste-t-il détectable après un recadrage de l'image ?",
+          options: ["Non, il disparaît dès qu'on modifie l'image", "Oui, il résiste au recadrage, à la compression et à la retouche", "Seulement si l'image garde son nom de fichier d'origine", "Seulement sur les images en noir et blanc"],
+          correct: 1,
+          explanation: "C'est tout l'intérêt du tatouage par pixels plutôt que par métadonnées : il survit aux modifications courantes du fichier."
+        },
+        {
+          question: "Un tatouage numérique invisible comme SynthID sert avant tout à quoi ?",
+          options: ["Rendre l'image plus jolie", "Certifier qu'une image a été générée par IA, même après partage", "Réduire la taille du fichier", "Empêcher le téléchargement de l'image"],
+          correct: 1,
+          explanation: "L'objectif est la traçabilité : pouvoir prouver l'origine générative d'un contenu, même des mois après sa création."
         }
       ],
       badge: {
@@ -497,6 +533,18 @@ export const coursesData = {
           ],
           correct: 1,
           explanation: "La recherche inversée scanne le web pour lister toutes les occurrences passées de l'image, dévoilant son vrai contexte."
+        },
+        {
+          question: "Qu'est-ce que le \"détournement d'image\" mentionné dans la fiche pratique ?",
+          options: ["Voler une image sur un autre site", "Associer une vraie photo historique à un texte d'actualité mensonger", "Redimensionner une image", "Changer le format d'un fichier image"],
+          correct: 1,
+          explanation: "Une photo authentique, mais ancienne ou hors contexte, accompagnée d'une légende inventée, est une des techniques de désinformation les plus courantes."
+        },
+        {
+          question: "Qu'est-ce que le biais de confirmation ?",
+          options: ["Un bug technique dans un site web", "La tendance à croire une fausse info simplement parce qu'elle va dans notre sens", "Un type de deepfake vidéo", "Une méthode de vérification fiable"],
+          correct: 1,
+          explanation: "On accepte plus facilement une information non vérifiée quand elle confirme ce qu'on pense déjà — c'est un piège cognitif à surveiller activement."
         }
       ],
       badge: {
@@ -540,6 +588,18 @@ export const coursesData = {
           ],
           correct: 1,
           explanation: "La diffusion rapide d'un faux discours de politicien juste avant un scrutin électoral peut manipuler l'opinion sans laisser de temps pour un démenti."
+        },
+        {
+          question: "Qu'est-ce que la génération en temps réel d'avatars parlants rend possible ?",
+          options: ["Rien de nouveau par rapport à la vidéo classique", "Des interactions instantanées avec un visage/voix entièrement artificiels", "Uniquement des jeux vidéo", "Des appels téléphoniques plus rapides"],
+          correct: 1,
+          explanation: "Un avatar généré en temps réel peut converser en direct, rendant la frontière entre humain et IA de plus en plus difficile à percevoir instantanément."
+        },
+        {
+          question: "Face à la généralisation des médias synthétiques, quelle posture est la plus raisonnable ?",
+          options: ["Ne plus jamais rien regarder en ligne", "Garder un esprit critique et vérifier les sources sensibles par plusieurs canaux", "Croire uniquement les vidéos les plus virales", "Arrêter d'utiliser internet"],
+          correct: 1,
+          explanation: "L'objectif n'est pas la méfiance totale, mais une vérification proportionnée à l'enjeu du contenu partagé."
         }
       ],
       badge: {
@@ -583,6 +643,18 @@ export const coursesData = {
           ],
           correct: 1,
           explanation: "En cadrant serré, on peut faire passer une altercation isolée pour une émeute généralisée, ou masquer une menace."
+        },
+        {
+          question: "Qu'est-ce qu'un titre \"putaclic\" (clickbait) cherche avant tout à faire ?",
+          options: ["Résumer fidèlement l'article", "Choquer pour générer des clics, souvent déconnecté du contenu réel", "Informer objectivement", "Citer ses sources"],
+          correct: 1,
+          explanation: "Le clickbait privilégie l'émotion immédiate à l'exactitude — un signal d'alerte classique à repérer avant de partager."
+        },
+        {
+          question: "Pourquoi le cadrage sélectif est-il difficile à détecter seul ?",
+          options: ["Parce qu'il est toujours accompagné d'un avertissement", "Parce qu'on ne voit que ce qui est montré, pas ce qui a été volontairement exclu", "Parce que c'est illégal", "Ce n'est jamais difficile à détecter"],
+          correct: 1,
+          explanation: "C'est justement l'absence de contexte visible qui rend cette technique efficace — d'où l'intérêt de chercher la source complète."
         }
       ],
       badge: {
@@ -628,6 +700,18 @@ export const coursesData = {
           ],
           correct: 1,
           explanation: "Generative neural nets often struggle with geometric symmetry, resulting in mismatching accessory details or lighting."
+        },
+        {
+          question: "Which audio clue can give away a voice-cloning deepfake?",
+          options: ["A flat, monotone voice with no natural breathing sounds", "A strong accent", "A voice that's too quiet", "A whispering voice"],
+          correct: 0,
+          explanation: "AI-cloned voices reproduce tone but still struggle to mimic natural micro-variations: breathing, hesitations, pacing changes."
+        },
+        {
+          question: "How should you protect yourself from a fake video call like the one that fooled several European mayors in 2022?",
+          options: ["Hang up and never answer that person again", "Verify identity through an independent second channel", "Ask the person to repeat more slowly", "Keep going, it's not a big deal"],
+          correct: 1,
+          explanation: "An independent second channel lets you confirm identity without relying solely on image or sound, which can be faked in real time."
         }
       ],
       badge: {
@@ -671,6 +755,18 @@ export const coursesData = {
           ],
           correct: 1,
           explanation: "Image generator networks excel at textures but struggle to render exact typographic vector structures."
+        },
+        {
+          question: "In an AI-generated image, what do people often notice about hands?",
+          options: ["They're always hidden", "An abnormal number of fingers or fused limbs", "They're always perfect", "They change color"],
+          correct: 1,
+          explanation: "Hands are a complex, highly variable structure that AI models have historically struggled to render correctly."
+        },
+        {
+          question: "What is the \"abnormal smoothing\" mentioned in the practical sheet?",
+          options: ["Waxy skin with no visible pores, looking too perfect", "Hair that's too short", "A blurry background", "An image that's too small"],
+          correct: 0,
+          explanation: "Generative models often over-smooth skin texture, producing an artificial, plastic-like effect."
         }
       ],
       badge: {
@@ -714,6 +810,18 @@ export const coursesData = {
           ],
           correct: 1,
           explanation: "Metadata can be easily stripped. SynthID modifies content pixels imperceptibly to ensure resilience."
+        },
+        {
+          question: "Does the SynthID watermark remain detectable after cropping the image?",
+          options: ["No, it disappears as soon as the image is edited", "Yes, it survives cropping, compression, and editing", "Only if the file keeps its original name", "Only on black and white images"],
+          correct: 1,
+          explanation: "That's the whole point of pixel-based watermarking over metadata: it survives common file modifications."
+        },
+        {
+          question: "What is the primary purpose of an invisible digital watermark like SynthID?",
+          options: ["To make the image prettier", "To certify an image was AI-generated, even after it's shared", "To reduce file size", "To prevent downloading the image"],
+          correct: 1,
+          explanation: "The goal is traceability: being able to prove a content's generative origin, even months after creation."
         }
       ],
       badge: {
@@ -757,6 +865,18 @@ export const coursesData = {
           ],
           correct: 1,
           explanation: "Reverse Image Search scans the web to discover where that image previously appeared, exposing context shifts."
+        },
+        {
+          question: "What is \"image hijacking\" as mentioned in the practical sheet?",
+          options: ["Stealing an image from another site", "Pairing a real historical photo with a false, unrelated news caption", "Resizing an image", "Changing an image file format"],
+          correct: 1,
+          explanation: "An authentic but old or out-of-context photo, paired with an invented caption, is one of the most common disinformation techniques."
+        },
+        {
+          question: "What is confirmation bias?",
+          options: ["A technical bug on a website", "The tendency to believe unverified info simply because it confirms what we already think", "A type of video deepfake", "A reliable verification method"],
+          correct: 1,
+          explanation: "We more easily accept unverified information when it confirms our existing beliefs — a cognitive trap worth actively watching for."
         }
       ],
       badge: {
@@ -800,6 +920,18 @@ export const coursesData = {
           ],
           correct: 1,
           explanation: "Releasing a fake speech right before an election leaves the community no time to check and debunk the lie."
+        },
+        {
+          question: "What does real-time talking avatar generation make possible?",
+          options: ["Nothing new compared to regular video", "Instant interactions with an entirely artificial face/voice", "Only video games", "Faster phone calls"],
+          correct: 1,
+          explanation: "A real-time generated avatar can hold a live conversation, making the line between human and AI increasingly hard to perceive instantly."
+        },
+        {
+          question: "Given the rise of synthetic media, what's the most reasonable stance to take?",
+          options: ["Never watch anything online again", "Stay critical and verify sensitive sources through multiple channels", "Only trust the most viral videos", "Stop using the internet"],
+          correct: 1,
+          explanation: "The goal isn't total distrust, but verification proportional to the stakes of the content being shared."
         }
       ],
       badge: {
@@ -843,6 +975,18 @@ export const coursesData = {
           ],
           correct: 1,
           explanation: "Cropping out surrounding details can easily turn a defensive stance into an aggressive one, or vice versa."
+        },
+        {
+          question: "What is a clickbait headline primarily designed to do?",
+          options: ["Accurately summarize the article", "Shock readers into clicking, often disconnected from the real content", "Inform objectively", "Cite its sources"],
+          correct: 1,
+          explanation: "Clickbait prioritizes immediate emotional reaction over accuracy — a classic red flag to spot before sharing."
+        },
+        {
+          question: "Why is selective framing hard to detect on your own?",
+          options: ["Because it always comes with a warning label", "Because you only see what's shown, not what was deliberately excluded", "Because it's illegal", "It's never hard to detect"],
+          correct: 1,
+          explanation: "It's precisely the absence of visible context that makes this technique effective — hence the value of seeking out the full source."
         }
       ],
       badge: {
