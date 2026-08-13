@@ -982,6 +982,30 @@ body.light-mode .sheet-points li {
   gap: 1.2rem;
 }
 
+.filter-group-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.sidebar-stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.sidebar-stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+
 .pill-btn {
   background: rgba(255,255,255,0.03);
   border: 1px solid var(--border-color);
@@ -1660,6 +1684,15 @@ body.light-mode .level-track {
   .type-btn {
     padding: 0.5rem;
   }
+
+  /* Large hero titles are written as inline styles (fontSize: '2.5rem' etc.) in the
+     React components — CSS class rules can't override those without !important. */
+  h1 { font-size: 1.7rem !important; line-height: 1.25 !important; }
+  h2 { font-size: 1.25rem !important; }
+
+  .main-content { padding: 1.5rem 1rem 3.5rem 1rem; }
+  .glass-card { padding: 1.3rem; }
+  header.navbar-header { padding: 0.8rem 1rem; }
 }
 
 /* Mobile navigation: real collapsing menu (the toggle button existed but had no styling before) */
