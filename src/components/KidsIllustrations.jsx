@@ -1,5 +1,9 @@
 import React from 'react';
 import sharkEiffelPhoto from '../assets/missions/shark-eiffel.png';
+import doubleRainbowPhoto from '../assets/missions/double-rainbow.png';
+import friendlySpiderPhoto from '../assets/missions/friendly-spider.png';
+import astronautCatPhoto from '../assets/missions/astronaut-cat.png';
+import floatingIslandPhoto from '../assets/missions/floating-island.png';
 
 // Petites illustrations dessinées à la main (SVG), pensées pour les enfants :
 // des formes rondes, des couleurs vives, pas de photoréalisme. Chacune remplace
@@ -141,73 +145,20 @@ export function SharkEiffelPhoto() {
   return <img src={sharkEiffelPhoto} alt="Un requin bondissant devant une tour, image générée" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />;
 }
 
-export function DoubleRainbow() {
-  return (
-    <svg viewBox="0 0 300 200" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Un double arc-en-ciel après la pluie">
-      <rect width="300" height="200" fill="#90caf9" />
-      <path d="M20 170 A130 130 0 0 1 280 170" fill="none" stroke="#ef5350" strokeWidth="8" />
-      <path d="M35 170 A115 115 0 0 1 265 170" fill="none" stroke="#ffb300" strokeWidth="8" />
-      <path d="M50 170 A100 100 0 0 1 250 170" fill="none" stroke="#66bb6a" strokeWidth="8" />
-      <path d="M65 170 A85 85 0 0 1 235 170" fill="none" stroke="#42a5f5" strokeWidth="8" />
-      <circle cx="245" cy="35" r="22" fill="#ffee58" />
-      <ellipse cx="80" cy="60" rx="35" ry="18" fill="#eceff1" />
-      <rect y="168" width="300" height="32" fill="#81c784" />
-    </svg>
-  );
+export function DoubleRainbowPhoto() {
+  return <img src={doubleRainbowPhoto} alt="Un double arc-en-ciel après la pluie, image générée" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />;
 }
 
-export function GiantSpiderCar() {
-  return (
-    <svg viewBox="0 0 300 200" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Une araignée géante à côté d'une voiture">
-      <rect width="300" height="200" fill="#3e2723" opacity="0.15" />
-      <rect x="40" y="145" width="90" height="30" rx="8" fill="#e53935" />
-      <circle cx="60" cy="178" r="10" fill="#212121" />
-      <circle cx="112" cy="178" r="10" fill="#212121" />
-      <rect x="55" y="130" width="45" height="20" rx="6" fill="#e53935" />
-      <ellipse cx="210" cy="150" rx="35" ry="25" fill="#3e2723" />
-      <circle cx="205" cy="140" r="6" fill="#ff5252" />
-      <circle cx="218" cy="140" r="6" fill="#ff5252" />
-      <line x1="185" y1="160" x2="150" y2="185" stroke="#3e2723" strokeWidth="5" />
-      <line x1="190" y1="170" x2="160" y2="195" stroke="#3e2723" strokeWidth="5" />
-      <line x1="235" y1="160" x2="270" y2="185" stroke="#3e2723" strokeWidth="5" />
-      <line x1="230" y1="170" x2="265" y2="195" stroke="#3e2723" strokeWidth="5" />
-    </svg>
-  );
+export function GiantSpiderPhoto() {
+  return <img src={friendlySpiderPhoto} alt="Une araignée souriante dans la forêt, image générée" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />;
 }
 
-export function AstronautCat() {
-  return (
-    <svg viewBox="0 0 300 200" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Un chat astronaute dans l'espace">
-      <rect width="300" height="200" fill="#0d1b2a" />
-      <circle cx="40" cy="30" r="2" fill="#fff" />
-      <circle cx="90" cy="60" r="2" fill="#fff" />
-      <circle cx="250" cy="40" r="2" fill="#fff" />
-      <circle cx="270" cy="120" r="2" fill="#fff" />
-      <circle cx="30" cy="150" r="2" fill="#fff" />
-      <circle cx="200" cy="170" r="3" fill="#fff" />
-      <circle cx="150" cy="100" r="45" fill="#eceff1" />
-      <circle cx="150" cy="100" r="34" fill="#0d1b2a" />
-      <circle cx="150" cy="105" r="26" fill="#ffb74d" />
-      <polygon points="130,88 122,72 140,84" fill="#ffb74d" />
-      <polygon points="170,88 178,72 160,84" fill="#ffb74d" />
-      <circle cx="142" cy="102" r="3" fill="#1a1a2e" />
-      <circle cx="158" cy="102" r="3" fill="#1a1a2e" />
-      <path d="M144 112 Q150 116 156 112" fill="none" stroke="#1a1a2e" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
+export function AstronautCatPhoto() {
+  return <img src={astronautCatPhoto} alt="Un chat astronaute dans l'espace, image générée" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />;
 }
 
-export function FloatingIsland() {
-  return (
-    <svg viewBox="0 0 300 200" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Une île flottant au-dessus de l'océan">
-      <rect width="300" height="200" fill="#4fc3f7" />
-      <rect y="150" width="300" height="50" fill="#0288d1" />
-      <ellipse cx="150" cy="95" rx="70" ry="30" fill="#8d6e63" />
-      <ellipse cx="150" cy="80" rx="55" ry="22" fill="#66bb6a" />
-      <ellipse cx="150" cy="140" rx="60" ry="10" fill="#ffffff" opacity="0.6" />
-      <circle cx="240" cy="30" r="18" fill="#ffee58" />
-    </svg>
-  );
+export function FloatingIslandPhoto() {
+  return <img src={floatingIslandPhoto} alt="Une île flottant au-dessus de l'océan, image générée" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />;
 }
 
 export function TwoMoonsEarth() {
@@ -239,7 +190,7 @@ export const MISSIONS = [
       ai: { fr: "Les bords de l'aileron sont anormalement lisses, typique d'un montage.", en: "The fin's edges are unusually smooth, typical of a composite image." },
     }
   },
-  { id: 'm2', Illustration: DoubleRainbow, isTrue: true,
+  { id: 'm2', Illustration: DoubleRainbowPhoto, isTrue: true,
     claim: { fr: "Un double arc-en-ciel est apparu dans le ciel juste après une averse.", en: "A double rainbow appeared in the sky right after a rain shower." },
     explanation: { fr: "Vrai ! Les doubles arcs-en-ciel sont un vrai phénomène naturel — la lumière se réfléchit deux fois à l'intérieur des gouttes de pluie. Pas besoin d'un piège, la nature est parfois spectaculaire !", en: "True! Double rainbows are a real natural phenomenon — light reflects twice inside raindrops. No trick needed, nature can be spectacular on its own!" },
     clues: {
@@ -248,7 +199,7 @@ export const MISSIONS = [
       ai: { fr: "Aucun signe de montage : le grain et la lumière sont cohérents partout.", en: "No signs of editing: grain and lighting are consistent everywhere." },
     }
   },
-  { id: 'm3', Illustration: GiantSpiderCar, isTrue: false,
+  { id: 'm3', Illustration: GiantSpiderPhoto, isTrue: false,
     claim: { fr: "Une araignée aussi grande qu'une voiture a été filmée dans une forêt.", en: "A spider as big as a car was filmed in a forest." },
     explanation: { fr: "Faux ! Aucune araignée de cette taille n'existe sur Terre. Ce genre d'image utilise souvent un vrai objet (comme une voiture) pour donner une fausse impression d'échelle.", en: "False! No spider that size exists on Earth. This kind of image often uses a real object (like a car) to create a false sense of scale." },
     clues: {
@@ -257,7 +208,7 @@ export const MISSIONS = [
       ai: { fr: "Les poils de l'araignée sont répétés de façon identique — un signe de génération par IA.", en: "The spider's hairs repeat identically — a sign of AI generation." },
     }
   },
-  { id: 'm4', Illustration: AstronautCat, isTrue: true,
+  { id: 'm4', Illustration: AstronautCatPhoto, isTrue: true,
     claim: { fr: "Un vrai chat a déjà été envoyé dans l'espace par une agence spatiale.", en: "A real cat has actually been sent to space by a space agency." },
     explanation: { fr: "Vrai ! En 1963, la France a envoyé une chatte nommée Félicette dans l'espace. Elle est revenue saine et sauve. Parfois, la réalité est aussi surprenante que la fiction !", en: "True! In 1963, France sent a cat named Félicette to space. She returned safely. Sometimes reality is just as surprising as fiction!" },
     clues: {
@@ -266,7 +217,7 @@ export const MISSIONS = [
       ai: { fr: "Ce fait historique est confirmé par plusieurs sources indépendantes.", en: "This historical fact is confirmed by several independent sources." },
     }
   },
-  { id: 'm5', Illustration: FloatingIsland, isTrue: false,
+  { id: 'm5', Illustration: FloatingIslandPhoto, isTrue: false,
     claim: { fr: "Une île flotte librement au milieu de l'océan Atlantique.", en: "An island floats freely in the middle of the Atlantic Ocean." },
     explanation: { fr: "Faux ! Les îles reposent sur la croûte terrestre, elles ne peuvent pas flotter comme un bateau. Cette image utilise un montage numérique pour donner cette illusion.", en: "False! Islands sit on the Earth's crust, they can't float like a boat. This image uses digital editing to create that illusion." },
     clues: {
