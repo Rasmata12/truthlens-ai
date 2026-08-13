@@ -1,4 +1,4 @@
-# Logs
+﻿# Logs
 logs
 *.log
 npm-debug.log*
@@ -11,6 +11,13 @@ node_modules
 dist
 dist-ssr
 *.local
+
+# Backend Python
+backend/venv
+backend/__pycache__
+backend/app/__pycache__
+backend/truthlens.db
+*.pyc
 
 # Editor directories and files
 .vscode/*
