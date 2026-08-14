@@ -775,7 +775,7 @@ body.light-mode .list-box li {
 }
 
 .list-box.green-border li::before {
-  content: 'â€¢';
+  content: '\2022';
   color: var(--success);
   position: absolute;
   left: 0;
@@ -784,7 +784,7 @@ body.light-mode .list-box li {
 }
 
 .list-box.red-border li::before {
-  content: 'â€¢';
+  content: '\2022';
   color: var(--danger);
   position: absolute;
   left: 0;
@@ -892,7 +892,7 @@ body.light-mode .sheet-points li {
 }
 
 .sheet-points li::before {
-  content: 'â†’';
+  content: '\2192';
   color: var(--primary);
   position: absolute;
   left: 0;
@@ -1270,7 +1270,7 @@ body.light-mode .comment-text {
    COMPONENTS - KIDS ARENA STYLES
    ========================================== */
 .kids-theme-container {
-  /* The kids section is a fixed dark "arcade" theme by design â€” it does not
+  /* The kids section is a fixed dark "arcade" theme by design — it does not
      follow the site-wide light/dark toggle. Without this, the hardcoded
      white text used throughout (options, questions, explanations) becomes
      invisible whenever the site is in light mode, since this container had
@@ -1697,7 +1697,7 @@ body.light-mode .level-track {
   }
 
   /* Large hero titles are written as inline styles (fontSize: '2.5rem' etc.) in the
-     React components â€” CSS class rules can't override those without !important. */
+     React components — CSS class rules can't override those without !important. */
   h1 { font-size: 1.7rem !important; line-height: 1.25 !important; }
   h2 { font-size: 1.25rem !important; }
 
@@ -1737,7 +1737,7 @@ body.light-mode .level-track {
   .nav-controls { order: 2; }
 }
 
-/* ===================== TruthLens Junior â€” Mission Mode ===================== */
+/* ===================== TruthLens Junior — Mission Mode ===================== */
 .tj-shell {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -1880,7 +1880,7 @@ body.light-mode .level-track {
 }
 .tj-mode-btn.active { background: linear-gradient(135deg, #7c3aed, #4c1d95); color: #fff; border-color: transparent; }
 
-/* ===================== AI or Real â€” image guessing game ===================== */
+/* ===================== AI or Real — image guessing game ===================== */
 .aor-shell {
   background: linear-gradient(160deg, #fdf6e3 0%, #f7ecc9 100%);
   border-radius: 24px;
@@ -1939,4 +1939,3 @@ body.light-mode .level-track {
 @media (max-width: 600px) {
   .aor-image-card { width: 100%; max-width: 320px; height: 220px; }
 }
-
