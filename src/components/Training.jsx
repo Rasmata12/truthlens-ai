@@ -204,8 +204,8 @@ export default function Training({ language, completedCourses, onCourseCompleted
                     <AlertCircle size={18} />
                     {t.training.caseTitle}
                   </h4>
-                  <h5 style={{ color: 'var(--color-text)', fontSize: '0.95rem', marginBottom: '0.5rem' }}>{selectedCourse.example.title}</h5>
-                  <p style={{ fontSize: '0.85rem', marginBottom: '0.8rem' }}>{selectedCourse.example.description}</p>
+                  <h5 style={{ color: 'var(--color-text)', fontSize: '1rem', marginBottom: '0.7rem', lineHeight: 1.4 }}>{selectedCourse.example.title}</h5>
+                  <p style={{ fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1rem' }}>{selectedCourse.example.description}</p>
                   <div className="lesson-box">
                     <strong>{t.training.lessonLearned}</strong> {selectedCourse.example.lessons}
                   </div>
