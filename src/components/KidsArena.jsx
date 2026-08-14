@@ -1,15 +1,14 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { kidsQuizzesData, translations } from '../translations';
 import { Award, ShieldAlert, Sparkles, Smile, Star, ArrowRight, Check, AlertTriangle, RotateCcw, ScanSearch, Link2, Bird, Dog, Cat, Rabbit, X, PartyPopper, Lightbulb, Trophy } from 'lucide-react';
 import { ILLUSTRATIONS } from './KidsIllustrations';
 import KidsMissionMode from './KidsMissionMode';
-import AiOrRealMode from './AiOrRealMode';
 
 const AVATARS = [
   { id: 'owl', name: 'Chouette Savante / Smart Owl', Icon: Bird, color: '#ffb300' },
-  { id: 'dog', name: 'Chien DÃ©tective / Dog Detective', Icon: Dog, color: '#00e5ff' },
+  { id: 'dog', name: 'Chien Détective / Dog Detective', Icon: Dog, color: '#00e5ff' },
   { id: 'cat', name: 'Chat Ninja / Cat Ninja', Icon: Cat, color: '#00e676' },
-  { id: 'fox', name: 'Renard RusÃ© / Sly Fox', Icon: Rabbit, color: '#ff3d00' }
+  { id: 'fox', name: 'Renard Rusé / Sly Fox', Icon: Rabbit, color: '#ff3d00' }
 ];
 
 // Maps illustration icon names (from translations.js) to actual lucide components (fallback)
@@ -92,22 +91,19 @@ export default function KidsArena({ language, completedKidsQuizzes, onKidsQuizCo
 
       <div className="tj-mode-switch" style={{ justifyContent: 'center' }}>
         <button className={`tj-mode-btn ${gameMode === 'missions' ? 'active' : ''}`} onClick={() => setGameMode('missions')} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-          <ScanSearch size={15} /> {language === 'fr' ? 'Missions DÃ©tective' : 'Detective Missions'}
+          <ScanSearch size={15} /> {language === 'fr' ? 'Missions Détective' : 'Detective Missions'}
         </button>
         <button className={`tj-mode-btn ${gameMode === 'quizzes' ? 'active' : ''}`} onClick={() => setGameMode('quizzes')} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
           <Award size={15} /> {language === 'fr' ? 'Quiz classiques' : 'Classic quizzes'}
         </button>
-        <button className={`tj-mode-btn ${gameMode === 'aiorreal' ? 'active' : ''}`} onClick={() => setGameMode('aiorreal')} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-          <Sparkles size={15} /> {language === 'fr' ? 'IA ou RÃ©el' : 'AI or Real'}
-        </button>
       </div>
 
       {gameMode === 'missions' && (
-        <KidsMissionMode language={language} userPoints={userPoints} onMissionAnswered={onMissionAnswered} />
-      )}
-
-      {gameMode === 'aiorreal' && (
-        <AiOrRealMode language={language} />
+        <KidsMissionMode
+          language={language}
+          userPoints={userPoints}
+          onMissionAnswered={onMissionAnswered}
+        />
       )}
 
       {gameMode === 'quizzes' && (
@@ -281,7 +277,7 @@ export default function KidsArena({ language, completedKidsQuizzes, onKidsQuizCo
               </h2>
               <p style={{ color: '#fff', fontSize: '1.2rem', marginBottom: '1.5rem' }}>
                 {language === 'fr' 
-                  ? `Tu as rÃ©pondu correctement Ã  ${correctAnswersCount} question(s) sur ${activeQuiz.questions.length} !` 
+                  ? `Tu as répondu correctement à ${correctAnswersCount} question(s) sur ${activeQuiz.questions.length} !` 
                   : `You answered ${correctAnswersCount} out of ${activeQuiz.questions.length} questions correctly!`
                 }
               </p>
@@ -303,7 +299,7 @@ export default function KidsArena({ language, completedKidsQuizzes, onKidsQuizCo
               ) : (
                 <p style={{ color: '#d1c4e9', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
                   {language === 'fr' 
-                    ? 'Essaie encore une fois pour obtenir toutes les bonnes rÃ©ponses et gagner le badge !' 
+                    ? 'Essaie encore une fois pour obtenir toutes les bonnes réponses et gagner le badge !' 
                     : 'Try again to score a perfect count and earn the badge!'
                   }
                 </p>
@@ -326,4 +322,3 @@ export default function KidsArena({ language, completedKidsQuizzes, onKidsQuizCo
     </div>
   );
 }
-
