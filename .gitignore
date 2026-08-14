@@ -1,4 +1,4 @@
-﻿# Logs
+# Logs
 logs
 *.log
 npm-debug.log*
@@ -17,6 +17,7 @@ backend/venv
 backend/__pycache__
 backend/app/__pycache__
 backend/truthlens.db
+backend/._demo_posts_cleaned
 *.pyc
 
 # Editor directories and files
