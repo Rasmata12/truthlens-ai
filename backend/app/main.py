@@ -1,6 +1,7 @@
-﻿from typing import List
+from typing import List
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from sqlmodel import Session, select
 
 from .database import init_db, get_session
@@ -9,9 +10,19 @@ from .analyze import router as analyze_router
 
 app = FastAPI(title="TruthLens API", version="1.0.0")
 
+
+class UTF8JSONResponse(JSONResponse):
+    """Force le charset UTF-8 explicitement dans l'en-tête Content-Type de chaque
+    réponse JSON — par défaut FastAPI n'ajoute pas toujours ce paramètre, ce qui
+    peut amener certains clients/proxys à mal deviner l'encodage des accents."""
+    media_type = "application/json; charset=utf-8"
+
+
+app.router.default_response_class = UTF8JSONResponse
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # dev only â€” restreindre au domaine du frontend en production
+    allow_origins=["*"],  # dev only — restreindre au domaine du frontend en production
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -29,7 +40,7 @@ def health():
     return {"status": "ok"}
 
 
-# ---------- POSTS (fil de la communautÃ©) ----------
+# ---------- POSTS (fil de la communauté) ----------
 
 @app.get("/posts", response_model=List[Post])
 def list_posts(session: Session = Depends(get_session)):
@@ -64,7 +75,7 @@ def vote_post(post_id: int, action: VoteAction, session: Session = Depends(get_s
     elif action.direction == "flag":
         post.flags += 1
     else:
-        raise HTTPException(status_code=400, detail="direction doit Ãªtre 'up' ou 'flag'")
+        raise HTTPException(status_code=400, detail="direction doit être 'up' ou 'flag'")
     session.add(post)
     session.commit()
     session.refresh(post)
@@ -91,4 +102,3 @@ def add_comment(post_id: int, data: CommentCreate, session: Session = Depends(ge
     session.commit()
     session.refresh(comment)
     return comment
-
