@@ -819,22 +819,31 @@ export default function Verifier({ language, onVerificationComplete, onAddToComm
 
               {/* Explanations lists */}
               <div className="report-lists" style={{ marginTop: '2rem' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-                  <div className="list-box green-border">
-                    <h5 style={{ color: 'var(--success)', display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.75rem', fontSize: '0.9rem' }}>
-                      <CheckCircle size={16} /> {t.verifier.relElements}
-                    </h5>
-                    <ul>
-                      {report.positivePoints.map((pt, i) => <li key={i}>{pt}</li>)}
-                    </ul>
+                <div className="signal-group">
+                  <h5 className="signal-group-title success">
+                    <CheckCircle size={17} /> {t.verifier.relElements}
+                  </h5>
+                  <div className="signal-cards">
+                    {report.positivePoints.map((pt, i) => (
+                      <div key={i} className="signal-card success">
+                        <Check size={15} className="signal-card-icon" />
+                        <p>{pt}</p>
+                      </div>
+                    ))}
                   </div>
-                  <div className="list-box red-border">
-                    <h5 style={{ color: 'var(--danger)', display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.75rem', fontSize: '0.9rem' }}>
-                      <AlertTriangle size={16} /> {t.verifier.susElements}
-                    </h5>
-                    <ul>
-                      {report.negativePoints.map((pt, i) => <li key={i}>{pt}</li>)}
-                    </ul>
+                </div>
+
+                <div className="signal-group" style={{ marginTop: '1.6rem' }}>
+                  <h5 className="signal-group-title danger">
+                    <AlertTriangle size={17} /> {t.verifier.susElements}
+                  </h5>
+                  <div className="signal-cards">
+                    {report.negativePoints.map((pt, i) => (
+                      <div key={i} className="signal-card danger">
+                        <AlertTriangle size={15} className="signal-card-icon" />
+                        <p>{pt}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
