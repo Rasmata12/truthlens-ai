@@ -65,7 +65,8 @@ export const translations = {
       verdictAi: "CONTENU GÉNÉRÉ PAR IA",
       verdictReliable: "SÛR ET FIABLE",
       verdictDoubtful: "SUSPECT / DOUTEUX",
-      verdictUnverifiable: "NON VÉRIFIABLE PAR LE LIEN"
+      verdictUnverifiable: "NON VÉRIFIABLE PAR LE LIEN",
+      verdictUnverified: "NON VÉRIFIÉ"
     },
     training: {
       title: "Académie de l'Information Citoyenne",
@@ -231,7 +232,8 @@ export const translations = {
       verdictAi: "AI-GENERATED CONTENT",
       verdictReliable: "SAFE AND RELIABLE",
       verdictDoubtful: "SUSPECT / DOUBTFUL",
-      verdictUnverifiable: "CANNOT BE VERIFIED FROM THE LINK"
+      verdictUnverifiable: "CANNOT BE VERIFIED FROM THE LINK",
+      verdictUnverified: "UNVERIFIED"
     },
     training: {
       title: "Citizen Media Academy",

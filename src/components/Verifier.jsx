@@ -254,15 +254,52 @@ export default function Verifier({ language, onVerificationComplete, onAddToComm
 
   // REAL REAL-TIME HEURISTIC CLASSIFIER
   const finishAnalysis = () => {
-    let score = 100;
-    let credibility = 100;
+    // FONDAMENTAL : le score ne part plus de 100. L'absence de signe de manipulation
+    // ne prouve jamais qu'un contenu est vrai — un texte sans source identifiable
+    // reste à un niveau neutre/bas par défaut, quelle que soit la qualité de son style.
+    let score = 40;
+    let credibility = 40;
     let aiSigns = 5;
     let emotional = 5;
     let incoherence = 5;
     let positive = [];
     let negative = [];
+    let sourceIdentifiable = null; // true / false / null (non applicable, ex: image/vidéo traitées séparément)
     
     const analysisText = inputVal.toLowerCase();
+
+    // Rule 0 (TEXT): real source/claim analysis — replaces the old "well-written = true" logic.
+    // Style, grammar, and absence of red flags are demoted to secondary signals; they can no
+    // longer push a sourceless claim up near 100%.
+    if (contentType === 'text' && inputVal) {
+      const sourceMarkersFr = ['selon', 'd\'après', 'source :', 'communiqué', 'annoncé par', 'confirmé par', 'rapporte', 'a déclaré', 'ministère', 'gouvernement', 'agence', 'institut', 'organisation mondiale', 'onu', 'oms'];
+      const sourceMarkersEn = ['according to', 'source:', 'announced by', 'confirmed by', 'reports', 'stated', 'ministry', 'government', 'agency', 'institute', 'world health', 'united nations'];
+      const urlInText = /https?:\/\/[^\s]+/i.test(inputVal);
+      const hasSourceMarker = (language === 'fr' ? sourceMarkersFr : sourceMarkersEn).some(m => analysisText.includes(m)) || urlInText;
+
+      sourceIdentifiable = hasSourceMarker;
+
+      if (!hasSourceMarker) {
+        // No identifiable source at all: hard ceiling, regardless of how clean the writing is.
+        score = 22;
+        credibility = 15;
+        negative.push(language === 'fr'
+          ? "Source : non identifiable. Aucune organisation, site officiel ou lien ne permet de vérifier d'où vient cette affirmation."
+          : "Source: not identifiable. No organization, official site, or link allows this claim to be verified.");
+        negative.push(language === 'fr'
+          ? "Aucune preuve externe trouvée pour confirmer cette affirmation — l'absence de signe de manipulation ne signifie pas que le contenu est vrai."
+          : "No external evidence found to confirm this claim — the absence of manipulation signs does not mean the content is true.");
+      } else {
+        score = 48;
+        credibility = 45;
+        positive.push(language === 'fr'
+          ? "Le texte mentionne une source ou un organisme cité — mais cela reste à vérifier indépendamment, une mention ne constitue pas une preuve."
+          : "The text mentions a source or cited organization — but this still needs independent verification, a mention alone is not proof.");
+        negative.push(language === 'fr'
+          ? "Impossible de confirmer automatiquement l'exactitude de la source citée sans vérification externe indépendante."
+          : "Cannot automatically confirm the accuracy of the cited source without independent external verification.");
+      }
+    }
 
     // Rule 1: Link Domain Heuristics — use the REAL server-side check (actual HTTP fetch +
     // domain analysis, executed on the backend) when reachable. Client-side regex guessing
@@ -515,6 +552,13 @@ export default function Verifier({ language, onVerificationComplete, onAddToComm
       // would be misleading: the honest message is "we simply can't verify this via
       // the link alone", not "this looks fake".
       verdict = t.verifier.verdictUnverifiable;
+    }
+
+    // TEXT: absence of a source is not evidence of fakery — it's evidence of nothing.
+    // A sourceless claim gets "NON VÉRIFIÉ", never "FIABLE" and never automatically "FAUX"
+    // either, unless something else (clickbait words, shouting) actively flags it as such.
+    if (contentType === 'text' && sourceIdentifiable === false && score < 75 && score >= 15) {
+      verdict = t.verifier.verdictUnverified;
     }
 
     const finalReport = {
